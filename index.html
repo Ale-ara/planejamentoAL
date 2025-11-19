@@ -1,225 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Plano de Noivado & Casa — Alessandro & Larissa</title>
-  <style>
-    :root{ --bg:#0f1724; --card:#0b1220; --accent:#2dd4bf; --muted:#94a3b8; --glass:rgba(255,255,255,0.03); --glass-2:rgba(255,255,255,0.02); --white:#e6eef6; }
-    *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-    body{margin:0;background:linear-gradient(180deg,#071022 0%, #071b2a 60%);color:var(--white);padding:28px;}
-    .wrap{max-width:980px;margin:0 auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);} 
-    header{display:flex;gap:16px;align-items:center}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042028}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:6px 0 18px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    .card{background:var(--card);padding:18px;border-radius:10px;border:1px solid var(--glass);}
-    .section-title{font-weight:700;margin-bottom:8px}
-    table{width:100%;border-collapse:collapse;margin-top:8px}
-    th,td{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.03);text-align:left;font-size:14px}
-    .muted{color:var(--muted);font-size:13px}
-    .strong{color:var(--accent);font-weight:700}
-    .timeline{display:flex;flex-direction:column;gap:8px}
-    .bar{height:12px;border-radius:8px;background:var(--glass-2);overflow:hidden}
-    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa)}
-    .checklist{display:flex;flex-direction:column;gap:6px}
-    .check{display:flex;gap:10px;align-items:center}
-    .note{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin-top:12px;color:var(--muted)}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-    pre.code{background:#061016;padding:10px;border-radius:8px;overflow:auto;font-size:13px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .small{font-size:13px}
-    @media(max-width:880px){.grid{grid-template-columns:1fr} .logo{width:56px;height:56px} body{padding:12px;} .wrap{padding:16px;margin:0;width:100%;} h1{font-size:18px} .section-title{font-size:16px} table{font-size:13px} th,td{padding:6px} .two-col{grid-template-columns:1fr} .card{padding:14px} .check{font-size:14px} ul li{font-size:14px}} .logo{width:56px;height:56px}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Planejamento da Casa</title>
+<style>
+  :root {
+    --bg: #0a0e16;
+    --card: #101726;
+    --text: #ffffff;
+    --accent: #00c2ff;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    max-width: 500px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .btn {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    padding: 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    color: var(--text);
+    transition: 0.3s;
+    font-size: 1.2rem;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+    background: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 14px;
+    }
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">A&L</div>
-      <div>
-        <h1>Plano de Noivado & Compra da Casa — Alessandro & Larissa</h1>
-        <p class="lead">Documento criado para organizar metas, finanças e timeline do noivado (planejado para 2026). Use como base para decidir entre 1 ou 2 anos de noivado e o plano de compra da casa.</p>
-      </div>
-    </header>
 
-    <div class="grid" style="margin-top:18px">
-      <main>
-        <div class="card">
-          <div class="section-title">Mensagem personalizada</div>
-          <p class="muted">Alessandro e Larissa — aqui está um plano prático para transformar o sonho de noivado e casa própria em algo concreto. Está escrito com carinho, números e passos acionáveis para facilitar as decisões.</p>
-          <div style="margin-top:10px">
-            <strong>Alvo principal:</strong> Noivar no final de 2026 + juntar entrada para compra de imóvel (meta: casas a partir de R$100.000).<br>
-            <strong>Contribuição planejada:</strong> Alessandro: R$500/mês; Larissa: R$500/mês — total R$1.000/mês.
-          </div>
-        </div>
+  <h1>Planejamento Financeiro e da Casa</h1>
+  <p>Escolha o que deseja visualizar</p>
 
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Resumo financeiro rápido</div>
-          <table>
-            <tr><th>Período</th><th>Valor total acumulado</th><th>Observação</th></tr>
-            <tr><td>6 meses</td><td>R$ 6.000</td><td>Entrada parcial em imóveis menores; ótimo para emergências e documentação</td></tr>
-            <tr><td>1 ano</td><td>R$ 12.000</td><td>Entrada suficiente para 10% de R$120.000 ou 20% de R$60.000</td></tr>
-            <tr><td>2 anos</td><td>R$ 24.000</td><td>Entrada muito sólida para imóveis de R$120k–R$240k (dependendo da % de entrada escolhida)</td></tr>
-            <tr><td>3 anos</td><td>R$ 36.000</td><td>Maior poder de negociação / opção para imóvel melhor ou reforma</td></tr>
-          </table>
-
-          <div class="note">Observação: os valores acima não consideram rendimento de investimentos — se investirem esse dinheiro (Tesouro Selic, CDB, poupança de alta liquidez) o total tende a ser um pouco maior. Posso simular com taxas conservadoras se quiserem.</div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Cenários de Noivado</div>
-          <div style="margin-top:8px">
-            <strong>Noivado de 1 ano (Rápido e objetivo)</strong>
-            <ul>
-              <li>Guardar R$1.000/mês durante 12 meses = R$12.000.</li>
-              <li>Usar para entrada (10–20%) + custos iniciais (cartório, imposto, documentação).</li>
-              <li>Vantagem: mantém o entusiasmo; casamento mais próximo.</li>
-              <li>Risco: menos tempo para folga financeira/emergências.</li>
-            </ul>
-
-            <strong>Noivado de 2 anos (Seguro e planejado)</strong>
-            <ul>
-              <li>Guardar R$1.000/mês durante 24 meses = R$24.000.</li>
-              <li>Permite entrada maior, pagar móveis ou pequenas reformas, negociar melhor o financiamento.</li>
-              <li>Vantagem: menos pressão, mais opções.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Simulações simples (entrada & financiamento)</div>
-          <p class="small muted">Fórmula útil: Entrada = % × Valor do imóvel. Parcela estimada (simplificada) ≈ (Valor financiado × taxa mensal) / (1 - (1+taxa)^-n) — essa é a fórmula da prestação do sistema PRICE. Para planejamento, use estimativas conservadoras.</p>
-
-          <table>
-            <tr><th>Valor casa</th><th>Entrada 10%</th><th>Entrada 20%</th><th>Financiamento restante (com 20% entrada)</th></tr>
-            <tr><td>R$ 100.000</td><td>R$ 10.000</td><td>R$ 20.000</td><td>R$ 80.000</td></tr>
-            <tr><td>R$ 150.000</td><td>R$ 15.000</td><td>R$ 30.000</td><td>R$ 120.000</td></tr>
-            <tr><td>R$ 200.000</td><td>R$ 20.000</td><td>R$ 40.000</td><td>R$ 160.000</td></tr>
-          </table>
-
-          <div class="note">Exemplo prático: se financiarem R$80.000 em 20 anos com uma taxa hipotética de 8% ao ano (≈0,64% ao mês) a parcela seria algo na casa de R$600–R$800 — isso varia MUITO conforme banco, prazo e índice atrelado (TR, IPCA, taxa fixa).</div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Onde investir o dinheiro enquanto juntam</div>
-          <div class="two-col">
-            <div>
-              <strong>Tesouro Selic</strong>
-              <p class="muted small">Alta liquidez, baixo risco — indicado para reserva de entrada quando prazo é de meses/até 2 anos.</p>
-            </div>
-            <div>
-              <strong>CDBs de liquidez diária</strong>
-              <p class="muted small">Procurem bancos que ofereçam CDB com liquidez diária e boa remuneração (>=100% do CDI quando possível).</p>
-            </div>
-            <div>
-              <strong>Fundos DI / Renda fixa</strong>
-              <p class="muted small">Boas alternativas se a taxa liquidante for competitiva e as taxas de administração forem baixas.</p>
-            </div>
-            <div>
-              <strong>Poupança?</strong>
-              <p class="muted small">Evitar se possível — rende menos que Tesouro Selic e bons CDBs.</p>
-            </div>
-          </div>
-          <div class="note">Importante: ao escolher, considerem liquidez (precisarão do dinheiro sem perda) e custo/tributação. Para meta de 1–2 anos, prefiram liquidez e segurança em vez de maior risco.</div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Checklist detalhado (pronto para imprimir)</div>
-          <div class="checklist">
-            <div class="check"><input type="checkbox" /> Definir data aproximada do noivado</div>
-            <div class="check"><input type="checkbox" /> Criar conta/tesouro/CDB conjunta ou planilha compartilhada</div>
-            <div class="check"><input type="checkbox" /> Pesquisar preços médios de imóveis na cidade desejada</div>
-            <div class="check"><input type="checkbox" /> Estabelecer valor mensal fixo (R$500 + R$500 = R$1.000)</div>
-            <div class="check"><input type="checkbox" /> Simular financiamento em 2–3 bancos (Caixa, BB, bancos privados)</div>
-            <div class="check"><input type="checkbox" /> Separar reserva de emergência (3–6 meses de despesas) antes de comprometer tudo com a casa</div>
-            <div class="check"><input type="checkbox" /> Planejar noivado com orçamento (ex: jantar simples + anel dentro do planejado)</div>
-            <div class="check"><input type="checkbox" /> Listar prioridades: localização, tamanho, estado do imóvel, proximidade de trabalho</div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Passo a passo para comprar a casa (resumido)</div>
-          <ol>
-            <li>Definam a faixa de preço e localização desejada.</li>
-            <li>Juntem entrada — ideal 20% para melhores condições.</li>
-            <li>Verifiquem certificação do imóvel (matrícula, débitos, IPTU).</li>
-            <li>Façam simulações de financiamento em vários bancos e consultem um corretor de confiança.</li>
-            <li>Preparem custos extras: ITBI, escritura, registro, taxas bancárias e móveis.</li>
-            <li>Assinem contrato e escolham o melhor prazo/taxa disponível.</li>
-          </ol>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Orçamento exemplo para Noivado + Casa (meta 2 anos)</div>
-          <table>
-            <tr><th>Item</th><th>Valor estimado</th></tr>
-            <tr><td>Entrada do imóvel (meta)</td><td>R$ 24.000 (2 anos)</td></tr>
-            <tr><td>Reserva para documentação & ITBI</td><td>R$ 5.000</td></tr>
-            <tr><td>Móveis essenciais</td><td>R$ 8.000</td></tr>
-            <tr><td>Fundo de emergência (6 meses)</td><td>R$ 12.000 (ex.: despesas mensais R$2k)</td></tr>
-            <tr><td>Noivado (evento simples)</td><td>R$ 1.500</td></tr>
-            <tr><td><strong>Total aproximado</strong></td><td><strong>R$ 50.500</strong></td></tr>
-          </table>
-          <div class="note">Obs: esses números são ilustrativos — ajustar conforme realidade de vocês.</div>
-        </div>
-
-      </main>
-
-      <aside>
-        <div class="card">
-          <div class="section-title">Resumo rápido</div>
-          <p><span class="strong">Alessandro + Larissa</span></p>
-          <p class="muted small">Contribuição conjunta: <strong>R$1.000/mês</strong></p>
-          <p class="muted small">Meta entrada 2 anos: <strong>R$24.000</strong></p>
-          <div style="margin-top:10px" class="timeline">
-            <div class="muted small">Progresso meta (exemplo):</div>
-            <div class="bar" title="6 meses"><i style="width:25%"></i></div>
-            <div class="bar" title="1 ano"><i style="width:50%"></i></div>
-            <div class="bar" title="2 anos"><i style="width:100%"></i></div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Dicas práticas (rápidas)</div>
-          <ul class="muted small">
-            <li>Automatizem transferências todo dia 1º do mês para a conta de economia.</li>
-            <li>Façam uma planilha compartilhada para acompanhar o saldo (Google Sheets).</li>
-            <li>Antes de comprar, mantenham reserva de emergência (3–6 meses).</li>
-            <li>Negociem taxas e prazos com pelo menos 2 bancos.</li>
-            <li>Considerem comprar um imóvel mais simples e reformar aos poucos.</li>
-          </ul>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Checklist para o dia do noivado</div>
-          <div class="muted small">
-            <ul>
-              <li>Escolher local e data (reservar com antecedência, se necessário)</li>
-              <li>Jantar íntimo ou encontro surpresa (decidam estilo juntos)</li>
-              <li>Anel: orçamento definido antes do evento</li>
-              <li>Fotos simples com telefone ou amigo fotógrafo</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="section-title">Perguntas frequentes</div>
-          <div class="muted small">
-            <strong>Q:</strong> Precisamos comprar casa antes de casar?<br>
-            <strong>A:</strong> Não necessariamente. Muitos casais moram de aluguel e compram depois. Comprar antes dá estabilidade, mas exige planejamento.
-            <hr />
-            <strong>Q:</strong> Quanto deixar na reserva de emergência?<br>
-            <strong>A:</strong> Recomendado 3–6 meses das despesas mensais. Não usem a entrada da casa para emergência.
-          </div>
-        </div>
-
-      </aside>
-    </div>
-
-    <footer>
-      <div class="muted">Feito com carinho para <strong>Alessandro</strong> e <strong>Larissa</strong>. </div>
-    </footer>
+  <div class="container">
+    <a href="planejamento-financeiro.html" class="btn">Planejamento de móveis</a>
+    <a href="planejamento-casa.html" class="btn">Planejamento da Casa</a>
   </div>
+
 </body>
 </html>
