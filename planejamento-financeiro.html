@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planejamento Financeiro - Móveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #0e0e16;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+  header {
+    text-align: center;
+    padding: 20px;
+  }
+  h1 { font-size: 28px; }
+  .container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+  }
+  .section-title {
+    font-size: 22px;
+    margin-top: 30px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .item {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  canvas { background: #fff; border-radius: 12px; margin-top: 20px; }
+
+  @media (max-width:600px){
+    h1 { font-size: 22px; }
+    .section-title{ font-size: 18px; }
+    canvas{ height:260px !important; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Planejamento de Móveis | Alessandro & Larissa</h1>
+  <p>Estimativas de investimento e progresso na economia</p>
+</header>
+
+<div class="container">
+  <h2 class="section-title">Estimativa de valores (2028)</h2>
+  <div class="grid">
+    <div class="item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=60"><p>Cama Box Casal Premium — R$ 2.500</p></div>
+    <div class="item"><img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c47?auto=format&fit=crop&w=800&q=60"><p>TV 60" 4K — R$ 3.500</p></div>
+    <div class="item"><img src="https://images.unsplash.com/photo-1598300056391-e374f7900b69?auto=format&fit=crop&w=800&q=60"><p>Fogão 6 bocas — R$ 1.800</p></div>
+    <div class="item"><img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=60"><p>Sofá 4 lugares — R$ 3.000</p></div>
+    <div class="item"><img src="https://images.unsplash.com/photo-1598300056290-7e6cd5ebc050?auto=format&fit=crop&w=800&q=60"><p>Geladeira Duplex — R$ 3.800</p></div>
+    <div class="item"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31b?auto=format&fit=crop&w=800&q=60"><p>Móveis de cozinha — R$ 4.200</p></div>
+  </div>
+
+  <h2 class="section-title">Total estimado</h2>
+  <p><strong>R$ 18.800,00</strong> (com folga aproximada para inflação até 2028)</p>
+
+  <h2 class="section-title">Progresso de Economia</h2>
+  <canvas id="graficoLinha" width="400" height="180"></canvas>
+  <canvas id="graficoBarra" width="400" height="250"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Dados projetados economia 500 cada (1000/mês)
+const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+const acumulado = meses.map((_, i) => (i+1) * 1000);
+
+new Chart(document.getElementById("graficoLinha"), {
+  type: "line",
+  data: {
+    labels: meses,
+    datasets: [{ label: "Economia acumulada", data: acumulado }]
+  }
+});
+
+new Chart(document.getElementById("graficoBarra"), {
+  type: "bar",
+  data: {
+    labels: meses,
+    datasets: [{ label: "Economia mensal (R$)", data: Array(12).fill(1000) }]
+  }
+});
+</script>
+</body>
+</html>
