@@ -8,50 +8,91 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+:root {
+  --bg: #0a0e16;
+  --card: #101726;
+  --text: #ffffff;
+  --accent: #00c2ff;
+}
 
-/* 🌟 RESPONSIVIDADE PARA CELULAR */
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 30px 0 10px 0;
+}
+h2 {
+  color: var(--accent);
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+/* ===== CARD CÔMODOS ===== */
+.comodo {
+  background: var(--card);
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 14px rgba(0,0,0,0.4);
+}
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.images img {
+  width: 180px;
+  height: 130px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ===== TEXTO VALOR ===== */
+.total {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+a.back {
+  display: inline-block;
+  margin: 30px auto;
+  background: var(--accent);
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+a.back:hover {
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 600px) {
+  h1 { font-size: 1.8rem; padding: 0 10px; }
+  h2 { font-size: 1.4rem; }
 
-  body {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 1.8rem !important;
-    padding: 0 10px;
-  }
-
-  h2 {
-    font-size: 1.4rem !important;
-  }
-
-  p {
-    font-size: 0.95rem;
-    padding: 0 8px;
-  }
-
-  .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 10px;
-  }
-
-  .btn {
-    width: 100%;
-    font-size: 1rem !important;
-    padding: 16px !important;
-  }
+  p { font-size: 1rem; padding: 0 10px; }
 
   .images img {
-    width: 120px !important;
-    height: 90px !important;
-  }
-
-  .comodo {
-    padding: 14px !important;
-    margin: 14px auto !important;
+    width: 130px;
+    height: 95px;
   }
 
   canvas {
@@ -61,96 +102,11 @@
 
   a.back {
     width: 90%;
-    display: block;
   }
 }
-
-  
-  :root {
-    --bg: #0a0e16;
-    --card: #101726;
-    --text: #ffffff;
-    --accent: #00c2ff;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    text-align: center;
-  }
-  h1 {
-    font-size: 2.3rem;
-    margin: 30px 0 10px 0;
-  }
-  p { opacity: 0.8; }
-
-  .comodo {
-    background: var(--card);
-    margin: 20px auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 900px;
-    border-radius: 14px;
-    box-shadow: 0px 0px 14px rgba(0,0,0,0.4);
-  }
-  h2 {
-    color: var(--accent);
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-  }
-
-  .images {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-  }
-  .images img {
-    width: 160px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  .total {
-    font-size: 1.4rem;
-    margin-top: 10px;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  canvas {
-    margin-top: 25px;
-  }
-
-  a.back {
-    display: inline-block;
-    margin: 30px auto;
-    background: var(--accent);
-    padding: 15px 20px;
-    border-radius: 12px;
-    color: var(--bg);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-  }
-  a.back:hover {
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 600px) {
-    .images img {
-      width: 120px;
-      height: 90px;
-    }
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-  }
 </style>
 </head>
+
 <body>
 
 <h1>Planejamento dos Cômodos da Casa</h1>
@@ -215,11 +171,11 @@
 
 <!-- GRÁFICO BARRA -->
 <h2>Custo por Cômodo (Barra)</h2>
-<canvas id="barChart" width="380" height="260"></canvas>
+<canvas id="barChart"></canvas>
 
 <!-- GRÁFICO LINHA -->
 <h2>Evolução estimada até 2028 (Linha)</h2>
-<canvas id="lineChart" width="380" height="260"></canvas>
+<canvas id="lineChart"></canvas>
 
 <a class="back" href="index.html">Voltar ao início</a>
 
@@ -229,17 +185,14 @@ const valores = [7300, 14000, 3800, 10500, 8000];
 
 new Chart(document.getElementById("barChart"), {
   type: "bar",
-  data: {
-    labels: comodos,
-    datasets: [{ data: valores }]
-  }
+  data: { labels: comodos, datasets: [{ data: valores, borderWidth: 1 }] }
 });
 
 new Chart(document.getElementById("lineChart"), {
   type: "line",
   data: {
     labels: ["2024", "2025", "2026", "2027", "2028"],
-    datasets: [{ data: [18000, 22000, 25000, 28000, 31000] }]
+    datasets: [{ data: [18000, 22000, 25000, 28000, 31000], borderWidth: 2 }]
   }
 });
 </script>
