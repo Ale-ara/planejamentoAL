@@ -65,12 +65,46 @@
 }
 
   
-  body {
-    margin: 0;
-    background: #0e0e16;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: url("https://i.imgur.com/I9t6PV9.jpeg") no-repeat center center/cover;
+  position: relative;
+}
+
+/* efeito de escurecimento leve do fundo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+
+h1, p, .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; padding: 0 12px; }
+  p { font-size: 1rem; padding: 0 10px; }
+  .btn { font-size: 1rem; padding: 14px; width: 100%; }
+  .container { width: 100%; max-width: 90%; }
+}
+
+  
   header {
     text-align: center;
     padding: 20px;
