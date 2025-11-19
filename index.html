@@ -16,20 +16,48 @@
   --accent: #00c2ff;
 }
 
-/* SLIDESHOW DO FUNDO */
+/* ----- LOADING ----- */
+.loading-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.loading-text {
+  opacity: 0;
+  animation: frases 10s infinite;
+}
+
+@keyframes frases {
+  0%   { opacity: 1; }
+  25%  { opacity: 0; }
+  50%  { opacity: 1; }
+  75%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ----- SLIDESHOW ----- */
 .slideshow {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: -2;
   background-size: cover;
   background-position: center;
   animation: trocar 28s infinite;
 }
 
-/* TEMPO DA TROCA DAS IMAGENS */
 @keyframes trocar {
   0%   { background-image: url("https://i.imgur.com/ZsS1D1E.jpeg"); }
   25%  { background-image: url("https://i.imgur.com/sOM0ePR.jpeg"); }
@@ -38,43 +66,26 @@
   100% { background-image: url("https://i.imgur.com/ODSW4xA.jpeg"); }
 }
 
-/* ESCURECIMENTO PARA DESTACAR TEXTO */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
   background: rgba(0,0,0,0.45);
   z-index: -1;
 }
 
-/* ESTILOS GERAIS */
+/* ----- CONTEÚDO ----- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
   color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   text-align: center;
   overflow: hidden;
 }
 
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 8px;
-  font-weight: 800;
-}
-
-p.sub {
-  font-size: 1.1rem;
-  opacity: .82;
-  margin-bottom: 30px;
-}
+h1 { font-size: 2.4rem; font-weight: 800; }
+p.sub { font-size: 1.1rem; opacity: .82; margin-bottom: 30px; }
 
 .container {
   display: flex;
@@ -82,10 +93,10 @@ p.sub {
   gap: 16px;
   width: 90%;
   max-width: 500px;
+  margin: auto;
+  position: relative;
   z-index: 10;
 }
-
-a { text-decoration: none; }
 
 .btn {
   background: var(--card);
@@ -94,31 +105,68 @@ a { text-decoration: none; }
   border-radius: 14px;
   font-weight: 600;
   color: var(--text);
-  transition: 0.3s;
+  transition: .3s;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
 }
-.btn:hover {
-  transform: scale(1.05);
-  background: var(--accent);
-  color: #000;
-}
-.icon { font-size: 1.4rem; }
 
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
-  h1 { font-size: 1.8rem; padding: 0 12px; }
-  p.sub { font-size: .95rem; }
-  .btn { font-size: 1rem; padding: 14px; }
-  .container { width: 100%; max-width: 90%; }
+.btn:hover { transform: scale(1.05); background: var(--accent); color:#000; }
+
+/* MOBILE */
+@media(max-width:600px){
+  h1{font-size:1.8rem;}
+  .btn{font-size:1rem;padding:14px;}
 }
 </style>
 </head>
 
 <body>
+
+<div class="loading-screen" id="loading">
+  <div id="frase" class="loading-text">Espere um pouquinho, meu amor 💙</div>
+</div>
+
+<script>
+const frases = [
+  "Espere um pouquinho, meu amor 💙",
+  "Preparando nosso sonho lindo 🏡",
+  "Carregando o futuro da gente...",
+  "Só um segundinho, princesa 👑",
+  "Está indo, juro! 😘"
+];
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % frases.length;
+  document.getElementById("frase").textContent = frases[i];
+}, 2500);
+
+// pré-carrega imagens
+const imagens = [
+  "https://i.imgur.com/ZsS1D1E.jpeg",
+  "https://i.imgur.com/sOM0ePR.jpeg",
+  "https://i.imgur.com/LrXqb7W.jpeg",
+  "https://i.imgur.com/zo3PawE.jpeg",
+  "https://i.imgur.com/ODSW4xA.jpeg"
+];
+
+let carregadas = 0;
+imagens.forEach(src => {
+  const img = new Image();
+  img.onload = () => {
+    carregadas++;
+    if (carregadas === imagens.length) {
+      setTimeout(() => {
+        document.getElementById("loading").style.opacity = "0";
+        setTimeout(() => document.getElementById("loading").style.display = "none", 900);
+      }, 1200);
+    }
+  };
+  img.src = src;
+});
+</script>
 
 <div class="slideshow"></div>
 <div class="overlay"></div>
@@ -127,13 +175,8 @@ a { text-decoration: none; }
 <p class="sub">Planejamento de vida | Alessandro & Larissa<br>Rumo ao nosso sonho 🏡</p>
 
 <div class="container">
-  <a href="planejamento-moveis.html" class="btn">
-    <span class="icon">🛋️</span> Planejamento de Móveis
-  </a>
-
-  <a href="planejamento-casa.html" class="btn">
-    <span class="icon">🏠</span> Planejamento da Casa
-  </a>
+  <a href="planejamento-moveis.html" class="btn">🛋️ Planejamento de Móveis</a>
+  <a href="planejamento-casa.html" class="btn">🏠 Planejamento da Casa</a>
 </div>
 
 </body>
